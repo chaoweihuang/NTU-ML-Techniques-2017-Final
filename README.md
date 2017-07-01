@@ -78,13 +78,13 @@ We can use `train.py` to train models. Note that this program use all training d
 * **features**: The features you want to use, supports "adonehot", "userlast", "userlast2", "usernext", "usernext2", "usernext3", "userprob", "adprob", "isnouser", "weekday", "timeinday"
 * **valid_day**: The day that is used for validation
 
-**Sample usage:**
+    **Sample usage:**
 
-    python3 train.py
-        --model_name sample_5.model
-        --type xgb
-        --features adonehot userlast usernext
-        --valid_day 5
+        python3 train.py
+            --model_name sample_5.model
+            --type xgb
+            --features adonehot userlast usernext
+            --valid_day 5
 
 #### Predict
 We can use `predict.py` to obtain predictions of saved models.
@@ -98,12 +98,12 @@ We can use `predict.py` to obtain predictions of saved models.
 * **all**: If you want to predict all models named `{prefix}_{valid_day}.model`, use this option and specify only the prefix as model path.
 * **model**: The path to saved model.
 
-**Sample usage:**
+    **Sample usage:**
 
-    python3 predict.py
-        models/sample_5.model
-        --type xgb
-        --features adonehot userlast usernext
+        python3 predict.py
+            models/sample_5.model
+            --type xgb
+            --features adonehot userlast usernext
 
 #### Ensemble
 We can use `ensemble.py` to ensemble the predictions which is predicted by `predict.py`
