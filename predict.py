@@ -16,8 +16,8 @@ from utility import *
 
 ### Parameters ###
 
-train_pred_dir = 'pred/train'
-test_pred_dir = 'pred/test'
+train_pred_dir = 'pred/train/'
+test_pred_dir = 'pred/test/'
 
 ##################
 
@@ -56,7 +56,7 @@ def predict(model_path, _type, features):
                     verbose=True)
 
     pred = predict_by_type(model, _type, X)
-    np.save(train_pred_dir + model_name + '.npy', pred)
+    np.save(os.path.join(train_pred_dir, model_name + '.npy'), pred)
 
     print('getting features for testing set')
     testX, testads, testtime, testuser = load_test_data_sparse(
@@ -67,7 +67,7 @@ def predict(model_path, _type, features):
                         verbose=True)
 
     pred = predict_by_type(model, _type, testX)
-    np.save(test_pred_dir + model_name + '.npy', pred)
+    np.save(os.path.join(test_pred_dir, model_name + '.npy'), pred)
 
     print('done')
 
@@ -91,7 +91,7 @@ def predict_all(prefix, _type, features):
                         testads, testtime, testuser,
                         verbose=True)
 
-    for day in range(7):
+    for day in range(8):
         model_path = '%s_%d.model' % (prefix, day)
         model_name = os.path.basename(model_path)
 
@@ -107,10 +107,10 @@ def predict_all(prefix, _type, features):
             model = joblib.load(model_path)
 
         pred = predict_by_type(model, _type, X)
-        np.save(train_pred_dir + model_name + '.npy', pred)
+        np.save(os.path.join(train_pred_dir, model_name + '.npy'), pred)
 
         pred = predict_by_type(model, _type, testX)
-        np.save(test_pred_dir + model_name + '.npy', pred)
+        np.save(os.path.join(test_pred_dir, model_name + '.npy'), pred)
 
         print('done')
 

@@ -145,8 +145,8 @@ def load_train_data_sparse():
 def load_train_data_by_days_sparse(days, only_half=False, valid_day=7):
     X = np.array([]).reshape((0, 136))
     y = np.array([]).reshape((0, ))
-    times = []
     ads = []
+    times = []
     users = []
 
     for day in days:
@@ -172,8 +172,8 @@ def load_train_data_by_days_sparse(days, only_half=False, valid_day=7):
             
         X = scipy.sparse.vstack((X, X_), format='csr')
         y = np.concatenate((y, y_), axis=0)
-        times = np.concatenate((times, times_), axis=0)
         ads = np.concatenate((ads, ads_), axis=0)
+        times = np.concatenate((times, times_), axis=0)
         users = np.concatenate((users, users_), axis=0)
 
     valid_idx = np.zeros(X.shape[0]).astype(bool)
@@ -183,7 +183,7 @@ def load_train_data_by_days_sparse(days, only_half=False, valid_day=7):
     valid_idx = np.where(valid_idx)[0]
     train_idx = np.where(train_idx)[0]
 
-    return X, y, times, ads, users, train_idx, valid_idx
+    return X, y, ads, times, users, train_idx, valid_idx
 
 def load_test_data_sparse(return_users=False):
     X = scipy.sparse.load_npz('data/testX_sparse.npz')
