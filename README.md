@@ -113,3 +113,8 @@ We can use `ensemble.py` to ensemble the predictions which is predicted by `pred
 * **method**: The ensemble method, can only be either "average" or "2level"
 
 Note that in order to use 2-level ensemble method, you need to name your model `{prefix}_{valid_day}.model`
+
+References
+------
+[1] S. Rendle. Factorization machines with libFM. ACM Trans. Intell. Syst. Technol., 3(3):57:1–57:22, May 2012.
+[2] Tianqi Chen and Carlos Guestrin. XGBoost: A Scalable Tree Boosting System. In 22nd SIGKDD Conference on Knowledge Discovery and Data Mining, 2016
