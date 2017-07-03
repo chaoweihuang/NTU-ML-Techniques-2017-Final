@@ -62,7 +62,7 @@ You can train some models and ensemble them as a baseline by
 
     bash baseline.sh
 
-This takes about 15 hours on a 24-core machine. The submission files will be placed in `pred` directory.
+This takes about 15 hours on a 24-core machine. The submission files will be placed in `pred` directory. The resulting public score is 0.144516 in track 1 and 0.148063 in track 2.
 
 #### Train
 We can use `train.py` to train models. Note that this program use all training data, while we've done several experiments on different data split.

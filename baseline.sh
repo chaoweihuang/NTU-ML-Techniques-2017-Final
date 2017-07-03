@@ -7,3 +7,4 @@ done
 
 python3 predict.py models/baseline --type xgb --features adonehot userlast usernext --all
 python3 ensemble.py average
+python3 predict_binary.py pred/output_ensemble_average.txt 0.09
